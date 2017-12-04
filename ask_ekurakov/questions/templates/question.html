@@ -1,0 +1,85 @@
+{% extends "./base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class = "col-xs-4 col-sm-4 col-md-4 col-lg-2">
+        <img src="/uploads/anonym.png" class="img-responsive center-block" alt="Responsive image">
+        <div class="clearfix"></div>
+        <br>
+        <button class="btn btn-md btn-link"><span style="font-size:150%">-</span></button>                
+        <span class = badge>{{question.rating}}</span>
+        <button class="btn btn-md btn-link"><span style="font-size:150%">+</span></button>
+    </div>
+    <div class = "col-xs-8 col-sm-8 col-md-8 col-lg-10">
+        <h3>
+            {{question.title}}
+        </h3>
+        <p>
+            {{question.text}}
+        </p>
+        <p> 
+            Теги: 
+            {% for tag in question.tags.all %}
+            <a href="{% url 'tag' tag.name %}">{{tag}}</a>
+            {% endfor %}
+        </p>
+    </div>
+</div>
+<hr>
+{% for article in articles %}
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class = "col-xs-4 col-sm-4 col-md-4 col-lg-2">
+                <img src="/uploads/anonym.png" class="img-responsive center-block" alt="Responsive image">
+                <div class="clearfix"></div>
+                <br>
+                <button class="btn btn-md btn-link"><span style="font-size:150%">-</span></button>
+                <span class = badge> {{article.rating}}</span>
+                <button class="btn btn-md btn-link"><span style="font-size:150%">+</span></button>
+            </div>
+            <div class = "col-xs-8 col-sm-8 col-md-8 col-lg-10">
+            
+                                    <p>
+                                        {{article.text}}
+                                        <br>
+                                    </p>
+                                    <p>
+                                        <input disabled checked type = "checkbox"> Correct! 
+                                    </p>
+
+                                </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+<form id = "form_answer" method="post" action="{% url 'create_answer' question.id %}">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Answer!</button>
+</form>
+
+{% endblock %}
+
+{% block paginator %}
+                    <nav aria-label="Page navigation">
+                      <ul class="pagination">
+                        <li>
+                          <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                          </a>
+                        </li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li>
+                          <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </nav>
+{% endblock %}

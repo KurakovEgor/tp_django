@@ -1,0 +1,90 @@
+{% extends "./base.html" %}
+
+{% block content %}
+<form enctype="multipart/form-data" action="{% url 'signup' %}" method="POST" class="form-horizontal">
+{% csrf_token %}
+{{form.errors}}
+    <div class="form-group has-error">
+                        <label for="login" class="col-sm-2 control-label">Логин</label>
+                        <div class="col-sm-10">
+                            {{form.login}}
+                            <!--<input type="text" class="form-control" id="login" maxlength="32" placeholder="ivanov1949"> -->
+                            {% if False %}
+                            <br>
+                            <div class="alert alert-danger">
+                                <p>Login has already used</p>
+                            </div>
+                            {% endif %}
+                        </div>
+    </div>
+    <div class="form-group">
+                        <label for="nickname" class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-10">
+                            {{form.email}}
+                    
+                            {% if False %}
+                            <br>
+                            <div class="alert alert-danger">
+                                <p>Login has already used</p>
+                            </div>
+                            {% endif %}
+                        </div>
+    </div>
+    <div class="form-group">
+                        <label for="nickname" class="col-sm-2 control-label">NickName</label>
+                        <div class="col-sm-10">
+                            {{form.username}}
+                        </div>
+                            {% if False %}
+                            <br>
+                            <div class="alert alert-danger">
+                                <p>Login has already used</p>
+                            </div>
+                            {% endif %}
+    </div>
+    <div class="form-group">
+                        <label for="password" class="col-sm-2 control-label">Password</label>
+                        <div class="col-sm-10">
+                            {{form.password}}
+                            {% if False %}
+                            <br>
+                            <div class="alert alert-danger">
+                                <p>Login has already used</p>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+    <div class="form-group">
+                        <label for="password2" class="col-sm-2 control-label">Repeat Password</label>
+                        <div class="col-sm-10">
+                            {{form.password2}}
+                            {% if False %}
+                            <br>
+                            <div class="alert alert-danger">
+                                <p>Login has already used</p>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+    <div class="form-group">
+                        <label for="currentAvatar" class="col-sm-2 control-label">Chosen avatar:</label>
+                        <div class="col-sm-4 offset-sm-6">
+                            <img alt="Avatar" src="/uploads/anonym.png" class="img-responsive" id="currentAvatar he">
+                        </div>
+    </div>
+    <div class="form-group">
+        <label for="photo" class="col-sm-2 control-label">Upload avatar</label>
+                            {{form.avatar}}
+                            {% if False %}
+                            <br>
+                            <div class="alert alert-danger">
+                                <p>Login has already used</p>
+                            </div>
+                            {% endif %}
+    </div>
+    <p class="text-center">
+                    <button type="submit" class="btn btn-default">Register</button>
+                </p>
+</form>
+
+{% endblock %}

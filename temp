@@ -1,0 +1,16 @@
+<form enctype="multipart/form-data">
+
+/questions/static/questions/js v papke static echo raz name of app
+common.js
+jquery-3.2.1.js
+
+a.picture.url()in templates
+
+templaty:
+
+<a href="" class="js-like" data-id="{a{a.id }}> Лайк (статьи а) </a>
+
+{% csrf_token %}
+
+{% load static %}
+<script>...

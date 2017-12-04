@@ -1,0 +1,57 @@
+{% extends "./base.html" %}
+
+{% block content %}
+    <h3 class="text-center"> Новые вопросы: </h3>
+    {% for q in questions %}
+        {% url 'question' q.id as qurl %}
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class = "col-xs-4 col-sm-4 col-md-4 col-lg-2">
+                        <img src="/uploads/anonym.png" class="img-responsive center-block" alt="Responsive image">
+                        <div class="clearfix"></div><br>
+                        <button class="btn btn-md btn-link"><span style="font-size:120%">-</span></button>
+                        <span class = badge>{{q.rating}}</span>
+                        <button class="btn btn-md btn-link"><span style="font-size:120%">+</span></button>
+                    </div>
+                    <div class = "col-xs-8 col-sm-8 col-md-8 col-lg-10">
+                        <h3><a href = "{{ qurl }}">{{ q.title }}</a></h3>
+                        <p>{{ q.text }}</p><br>
+                        <p>
+                            <a href="{{ qurl }}">answer (0)</a>  
+                                 Tags: 
+                            {% for tag in q.tags.all %}
+                            <a href="{% url 'tag' tag.name %}">{{tag}}</a>
+                            {% endfor %} 
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% block paginator %}
+                    <nav aria-label="Page navigation">
+                      <ul class="pagination">
+                        <li>
+                          <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                          </a>
+                        </li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li>
+                          <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </nav>
+{% endblock %}
+
+

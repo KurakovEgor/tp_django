@@ -1,0 +1,26 @@
+{% extends "./base.html" %}
+{% block content %}
+<form id = "form_article" method="post" action="/create_article/">
+{% csrf_token %}
+    <div class="form-group">
+        {% if False %}
+            <div class="alert alert-danger">
+                <p>Что-то пошло не так</p>
+            </div>
+        {% endif %}
+        <label for="login">Заголовок</label>
+        {{form.title}}            
+    </div>
+    <div class="form-group">
+        <label for="password">Текст</label>
+        {{form.text}}
+    </div>
+    <div class="form-group">
+        <label for="password">Теги</label>
+        {{form.tags}}
+    </div>
+    <button type="submit" class="btn btn-default">Добавить</button>
+</form>
+
+{% endblock %}
+

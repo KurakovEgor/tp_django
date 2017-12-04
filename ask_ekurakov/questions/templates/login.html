@@ -1,0 +1,24 @@
+{% extends "../base.html" %}
+{% block content %}
+<form action = "{% url 'login'%}" id = "form_login" method="post">             
+{% csrf_token %}
+    <div class="form-group">
+        {% if False %}
+            <div class="alert alert-danger">
+                <p>Incorrect login or password</p>
+            </div>
+        {% endif %}
+        <label for="login">Login</label>
+        {{form.login}}
+        <!--<input type="text" class="form-control" id="login" maxlength="32" placeholder="ivanov1949"> -->             
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        {{form.password}}
+        <!--<input type="password" class="form-control" id="password" maxlength="64" placeholder="******"> -->
+    </div>
+    <button type="submit" class="btn btn-default">Log In</button>
+</form>
+
+{% endblock %}
+

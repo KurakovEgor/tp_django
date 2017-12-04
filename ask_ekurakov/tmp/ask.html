@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="./static/bootstrap.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a href="index.html">
+                  <img alt="Brand" style="height:50px;" src="./static/brand.jpg">
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <form class="navbar-form navbar-left">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Search</button>
+              </form>
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <img alt="Avatar" style="height:50px;" src="./static/anonym.png">
+                </li>
+                <li>
+                    <p class="navbar-text navbar-right">
+                        Name
+                        <a href = "settings.html">settings</a>
+                        <a href = "index.html">logout</a>
+                    </p>
+                </li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+        <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-7 col-md-8 col-lg-8">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="title" class="col-sm-2 control-label">Title</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="title" maxlength="32" placeholder="Topic of your question">
+                        </div>
+                    </div>
+                     <div class="form-group has-error">
+                        <label for="text" class="col-sm-2 control-label">Text</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" rows="10" id ="text" maxlength="8192" placeholder="Describe your problem"></textarea>
+                            <br>
+                            <div class="alert alert-danger">
+                                <p>Length is more than maxlength</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tags" class="col-sm-2 control-label">Tags</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="tags" maxlength="64" placeholder="tag1, tag2">
+                        </div>
+                    </div>
+                <p class="text-center">
+                    <button type="submit" class="btn btn-default">ASK!</button>
+                </p>
+                </form>
+            </div>
+            <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4">
+                <div>
+                    <h2>Popular tags:</h2>
+                    <span style="font-size:2.8em;color:red">Tag1  </span>
+                    <span style="font-size:2em;color:blue">Tag2  </span>
+                    <span style="font-size:2.6em;color:green">Tag3  </span>
+                </div>
+                <div>
+                    <h2>Best members:</h2>
+                    <span style="font-size:2em;color:black">
+                        Member1 <br> 
+                        Member2 <br> 
+                        Member3 <br>
+                    </span>
+                </div>
+            </div>
+        </div>
+        </div>
+        <footer>
+            <p class="text-center">Copyright, 2017</p>
+        </footer>
+    </body>
+</html>
